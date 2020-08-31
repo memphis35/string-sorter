@@ -2,7 +2,7 @@ package online.memphis;
 
 public interface Sorter {
 
-	void sort(String[] array);
+	void sort(String[] array, boolean ignoreCase);
 
-	void sortReverse(String[] array);
+	void sortReverse(String[] array, boolean ignoreCase);
 }
