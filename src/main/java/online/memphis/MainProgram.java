@@ -1,6 +1,8 @@
 package online.memphis;
 
 import online.memphis.StringSorter;
+import online.memphis.Help;
+
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
@@ -12,19 +14,34 @@ public class MainProgram {
 
 	private static StringSorter sorter = new StringSorter(new BubbleSorter());
 
+	private static boolean checkString(String line) {
+		if (line.trim().isEmpty()) System.out.println("You've entered nothing to sort.");
+	}
+
 	public static void main(String[] args) {
+		boolean reverse = false;
+		boolean ignoreCase = false;
+		for (String argument : args) {
+			switch (argument) {
+				case "--reverse": reverse = true; break;
+				case "--ignore-case": ignoreCase = true; break;
+				case "--help": Help.getHelp(); System.exit(0);
+				default: System.out.println("Wrong arguments. Run with [--help] to get help."); System.exit(0);
+			}
+		}
 
 		System.out.println("StringSorter is running...");
 		System.out.println("Enter words here with spaces between: ");
-		
-		try (BufferedReader br = new BufferedReader(new InputStreamReader(System.in))) {
-			String[] words = br.readLine().split("\\s{1,*}");
-			if (!words[0].isEmpty()) {
-				System.out.println("You've entered " + words.length + " words");
-				System.out.println("StringSorter now is closed.");
+		String input = UserInput.getInput();
+		if (checkString(input)) {
+			String[] result = input.split("\\b");
+			if (!reverse) {
+				sorter.sort(result, ignoreCase);
 			} else {
-				System.out.println("You've not entered even a single word.");
+				sorter.sort(result, ignoreCase);
 			}
-		} catch (IOException ignored) {}
+			sorter.print(result);
+		}
+		System.out.println("StringSorter is closing...");
 	}
 }
