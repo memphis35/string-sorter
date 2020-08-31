@@ -10,16 +10,17 @@ public class StringSorter {
 	private Sorter sorter;
 	private StringBuilder builder;
 
+
 	public StringSorter(Sorter sorter) {
 		this.sorter = sorter;
 	}
 
-	public void sort(String[] array) {
-		sorter.sort(array);
+	public void sort(String[] array, boolean ignoreCase) {
+		sorter.sort(array, ignoreCase);
 	}
 
-	public void sortReverse(String[] array) {
-		sorter.sortReverse(array);
+	public void sortReverse(String[] array, boolean ignoreCase) {
+		sorter.sortReverse(array, ignoreCase);
 	}
 
 	public void print(String[] array) {

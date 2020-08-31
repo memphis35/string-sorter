@@ -1,7 +1,10 @@
 ###FOLDERS###
 
 /target
+/.idea
+/out
 
 ###FILES###
 
 pom.xml
+*.iml
