@@ -26,7 +26,7 @@ public class StringSorter {
 	public void print(String[] array) {
 		builder = new StringBuilder();
 		String delimiter = "====================";
-		builder.append("\n").append(delimiter);
+		builder.append("\n").append(delimiter).append("\n");
 		for (String str : array) {
 			if (!str.isEmpty()) builder.append(str).append(" ");
 		}

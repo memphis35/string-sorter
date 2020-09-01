@@ -15,7 +15,12 @@ public class MainProgram {
 	private static StringSorter sorter = new StringSorter(new BubbleSorter());
 
 	private static boolean checkString(String line) {
-		if (line.trim().isEmpty()) System.out.println("You've entered nothing to sort.");
+		if (line.trim().isEmpty()) {
+			System.out.println("You've entered nothing to sort.");
+			return false;
+		} else {
+			return true;
+		}
 	}
 
 	public static void main(String[] args) {
@@ -38,7 +43,7 @@ public class MainProgram {
 			if (!reverse) {
 				sorter.sort(result, ignoreCase);
 			} else {
-				sorter.sort(result, ignoreCase);
+				sorter.sortReverse(result, ignoreCase);
 			}
 			sorter.print(result);
 		}
